@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pronunciation Coach</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>✨ Pronunciation Coach</h1>
+    <p class="hint">
+      Genera una palabra en inglés, escúchala y practica pronunciándola. Comparamos lo reconocido con la palabra objetivo.
+    </p>
+
+    <section class="card">
+      <header class="card-head">
+        <div class="row">
+          <h2>Palabra objetivo</h2>
+          <div class="actions">
+            <button id="btnSpeak" title="Escuchar">🔊 Escuchar</button>
+            <button id="btnNew" title="Nueva">🔄 Nueva</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="target" id="targetWord">—</div>
+      <p class="subtle">Tip: pulsa “Escuchar” para oír la guía y luego intenta pronunciarla.</p>
+
+      <div class="center">
+        <button id="btnListen">🎙️ Hablar</button>
+      </div>
+
+      <div class="recognized">
+        <div id="interim" class="muted"></div>
+        <div id="finalText"></div>
+      </div>
+
+      <div id="result"></div>
+    </section>
+
+    <section class="side card">
+      <h3>Modo & Progreso</h3>
+      <div class="row">
+        <button id="modeTol" class="active">Tolerante</button>
+        <button id="modeStr">Estricto</button>
+      </div>
+
+      <div class="meter">
+        <div id="meterFill" style="width:0%"></div>
+      </div>
+      <div class="muted small" id="stats">0/0 correctas (0%)</div>
+
+      <hr />
+      <h4>Agregar palabra personalizada</h4>
+      <div class="row">
+        <input id="customInput" placeholder="Escribe una palabra en inglés" />
+        <button id="btnAdd">Agregar</button>
+      </div>
+      <div class="muted small">La palabra agregada será el objetivo actual.</div>
+    </section>
+
+    <section id="supportWarn" class="warn card" hidden>
+      <strong>Navegador no compatible.</strong>
+      <div>Prueba con Chrome o Edge y permite el micrófono.</div>
+    </section>
+
+    <section class="card">
+      <h3>¿Cómo funciona?</h3>
+      <ul>
+        <li>Usa el micrófono (Web Speech API) para convertir voz a texto en <b>inglés</b>.</li>
+        <li>Comparamos con la palabra objetivo usando coincidencia y distancia de <i>Levenshtein</i>.</li>
+        <li>Modo <b>Tolerante</b> permite pequeñas diferencias; <b>Estricto</b> exige coincidencia exacta.</li>
+      </ul>
+      <p class="muted small">Nota: evalúa lo que el navegador reconoce, no una puntuación fonética profesional.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

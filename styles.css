@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+:root { --bg:#f6f8fb; --card:#fff; --text:#0f172a; --muted:#6b7280; --accent:#111827; --ok:#065f46; --bad:#7f1d1d; }
+body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--text); background:var(--bg); }
+.container { max-width:960px; margin:40px auto; padding:0 16px; }
+h1 { margin:0 0 10px; }
+.hint { margin:0 0 20px; color:var(--muted); }
+.card { background:var(--card); border:1px solid #e5e7eb; border-radius:12px; padding:16px; margin:16px 0; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+.card-head .row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.row { display:flex; gap:8px; align-items:center; }
+.actions button { padding:8px 12px; }
+.target { font-size:64px; font-weight:800; letter-spacing:1px; text-align:center; margin:16px 0; }
+.center { display:flex; justify-content:center; }
+button { cursor:pointer; border:1px solid #111827; background:white; color:#111827; border-radius:10px; padding:10px 14px; font-weight:600; }
+button.active { background:#111827; color:#fff; }
+button:disabled { opacity:.5; cursor:not-allowed; }
+.subtle { text-align:center; color:var(--muted); margin:8px 0 16px; }
+.recognized { text-align:center; margin-top:8px; }
+.muted { color:var(--muted); }
+.small { font-size:12px; }
+#result { margin-top:12px; display:flex; justify-content:center; }
+.badge { padding:8px 12px; border-radius:999px; font-weight:600; display:inline-flex; gap:8px; align-items:center; }
+.badge.ok { background:#ecfdf5; color:var(--ok); border:1px solid #a7f3d0; }
+.badge.bad { background:#fef2f2; color:var(--bad); border:1px solid #fecaca; }
+.warn { border-color:#fbbf24; background:#fffbeb; }
+.side { }
+.meter { margin:10px 0; height:8px; border-radius:999px; background:#e5e7eb; overflow:hidden; }
+.meter > div { height:100%; background:#111827; }
+@media (min-width:900px){
+  .container { display:grid; grid-template-columns: 2fr 1fr; gap:16px; }
+  .container > .card:first-of-type { grid-column:1; }
+  .side.card { grid-column:2; height:fit-content; position:sticky; top:16px; }
+  .container > .card:last-of-type { grid-column:1 / -1; }
+}
